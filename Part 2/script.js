@@ -255,6 +255,8 @@ console.log(bills, tips, total);
 
 */
 
+/* Introduction to Objects
+
 const jonas = {
     firstName: 'Jonas',
     lastName: 'Schmedtmann',
@@ -262,3 +264,129 @@ const jonas = {
     job: 'teacher',
     friends: ['Michael', 'Peter', 'Steven']
 }; // Objeto Jonas tem 5 properties
+
+*/
+
+/* Dot vs Bracket Notation
+const jonas = {
+    firstName: 'Jonas',
+    lastName: 'Schmedtmann',
+    age: 2037 - 1991,
+    job: 'teacher',
+    friends: ['Michael', 'Peter', 'Steven']
+}
+console.log(jonas);
+
+console.log(jonas.lastName); // so sabemos o que tem lastName. nao da pra inventar. so aceita o property name
+console.log(jonas['lastName']); // permite fazer operacoes, como no exemplo abaixo. pode-se colocar qualquer expressao
+
+const nameKey = 'Name';
+console.log(jonas['first' + nameKey]);
+console.log(jonas['last' + nameKey]);
+
+const interestedIn = prompt('What do you want to know about Jonas? Choose between firstName, lastName, age, job, and friends');
+console.log(jonas[interestedIn]); // usando os brackets, podemos receber o input do utilizador como uma string e identificar a propertie no objeto
+
+
+if (jonas[interestedIn]) {
+    console.log(jonas[interestedIn]);
+} else {
+    console.log('Wrong request! choose between firstName, lastName, age, job, and friends')
+}
+
+jonas.location = 'Portugal';
+jonas['dog'] = 'maric';
+console.log(jonas);
+
+// Challenge
+// "Jonas has 3 friends and his best friend is called Michael"
+console.log(`${jonas.firstName} has ${jonas.friends.length} friends and his best friend is called ${jonas.friends[0]}`);
+*/
+
+
+/* Object Methods
+const jonas = {
+    firstName: 'Jonas',
+    lastName: 'Schmedtmann',
+    birthYear: 1991,
+    job: 'teacher',
+    friends: ['Michael', 'Peter', 'Steven'],
+    hasDriversLicense: true,
+
+    // calcAge: function (birthYear) { //quando funcao attached a um objeto, chama-se metodo
+    //     return 2037 - birthYear;
+    // }
+    // calcAge: function () {
+    //     // console.log(this); // mostra todo o objeto jonas. e o objeto jonas que chama esta funcao
+    //     return 2037 - this.birthYear;
+    // }
+    calcAge: function () {
+        this.age = 2037 - this.birthYear; // criamos uma propriedade chamada age
+        return this.age;
+    }
+};
+
+console.log(jonas.calcAge()); // jonas esta a chamar o metodo (jonas.)
+//console.log(jonas['calcAge'](1991));
+
+console.log(jonas.age);
+console.log(jonas.age);
+console.log(jonas.age);
+
+//Challenge
+// "Jonas is a 46-year old teacher, and he has a driver's license"
+
+const jonas = {
+    firstName: 'Jonas',
+    lastName: 'Schmedtmann',
+    birthYear: 1991,
+    job: 'teacher',
+    friends: ['Michael', 'Peter', 'Steven'],
+    hasDriversLicense: false,
+
+    calcAge: function () {
+        this.age = 2037 - this.birthYear; // criamos uma propriedade chamada age
+        return this.age;
+    },
+    getSummary: function () {
+        return `${this.firstName} is a ${this.calcAge()}-year old ${this.job}, and he has ${this.hasDriversLicense ? 'a' : 'no'} driver's license.`;
+
+    }
+};
+console.log(jonas.getSummary());
+*/
+
+/* Coding Challenge #3
+const marks = {
+    fullName: 'Mark Miller',
+    mass: 78,
+    height: 1.69,
+    calcBMI: function () {
+        this.bmi = this.mass / this.height ** 2;
+        return this.bmi;
+    }
+}
+
+const john = {
+    fullName: 'John Smith',
+    mass: 92,
+    height: 1.95,
+    calcBMI: function () {
+        this.bmi = this.mass / this.height ** 2;
+        return this.bmi;
+    }
+}
+
+console.log(marks.calcBMI(), john.calcBMI());
+if (marks.bmi > john.bmi) {
+    console.log(`${marks.fullName}'s BMI (${marks.bmi}) is higher than ${john.fullName}'s BMI (${john.bmi})`);
+} else if (john.bmi > marks.bmi) {
+    console.log(`${john.fullName}'s BMI (${john.bmi}) is higher than ${marks.fullName}'s BMI (${marks.bmi})`);
+}
+
+*/
+
+// for loop keeps runnin while condition is true
+for (let rep = 1; rep <= 10; rep++) {
+    console.log(`Lifting weights repetition ${rep}`);
+}
